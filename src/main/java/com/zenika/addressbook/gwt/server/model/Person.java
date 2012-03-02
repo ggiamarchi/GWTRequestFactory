@@ -44,7 +44,7 @@ public class Person implements Serializable, Comparable<Person> {
 	private String phone;
 	private String email;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "person_id")
 	private Set<Address> addresses;
 
