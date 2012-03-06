@@ -12,8 +12,7 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="com.google.gdt.eclipse.maven.mavenClasspathProvider"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.google.gwt.dev.DevMode"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-war E:\documents\blog\GWT_RequestFactory\repos\GWTRequestFactory\tmp -remoteUI &quot;${gwt_remote_ui_server_port}:${unique_id}&quot; -logLevel DEBUG -codeServerPort 9997 -startupUrl AddressBook.html -port 8888 com.zenika.addressbook.gwt.AddressBook"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-remoteUI &quot;${gwt_remote_ui_server_port}:${unique_id}&quot; -logLevel DEBUG -codeServerPort 9997 -startupUrl AddressBook.html -war &quot;${workspace_loc}/runtime/addressbook/war&quot; -port 8888 com.zenika.addressbook.gwt.AddressBook"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="AddressBook"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx512m"/>
-<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:AddressBook/tmp}"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx512m -Dgwt.rpc.dumpPayload=true"/>
 </launchConfiguration>
