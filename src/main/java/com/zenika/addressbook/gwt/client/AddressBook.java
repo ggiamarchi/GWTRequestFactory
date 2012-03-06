@@ -1,8 +1,5 @@
 package com.zenika.addressbook.gwt.client;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ChangeEvent;
@@ -68,13 +65,6 @@ public class AddressBook implements EntryPoint {
 						// Handle response
 						editRequest = requestFactory.personResquest();
 						person = editRequest.edit(person);
-						Set<AddressProxy> addresses = new HashSet<AddressProxy>();
-						if (person.getAddresses() != null) {
-							for (AddressProxy address : person.getAddresses()) {
-								addresses.add(editRequest.edit(address));
-							}
-							person.setAddresses(addresses);
-						}
 						currentPerson = person;
 						personPanel.setPerson(person);
 					}
