@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -67,12 +68,14 @@ public class AdressBookServiceTest {
 
 		SessionFactoryHolder.getCurrentSession().getTransaction().commit();
 	}
-//
-//	@Test
-//	public void testReadListPerson() {
-//		List<Person> list = services.readListPerson("Giamarchi");
-//		Assert.assertEquals(2, list.size());		
-//	}
+
+	@Test
+	public void testReadListPerson() {
+		SessionFactoryHolder.getCurrentSession().beginTransaction();
+		Person person = Person.read("Guillaume", "Giamarchi");
+		Assert.assertEquals("Guillaume", person.getFirstname());
+		Assert.assertEquals("Giamarchi", person.getLastname());
+		SessionFactoryHolder.getCurrentSession().getTransaction().commit();
+	}
 
 }
-
