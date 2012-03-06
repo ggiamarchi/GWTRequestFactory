@@ -19,15 +19,10 @@
 
 	<!-- Specify the app entry point class. -->
 	<entry-point class='com.zenika.addressbook.gwt.client.AddressBook' />
-	
-	<extend-property name="locale" values="en" />
-	<extend-property name="locale" values="fr" />
 
-	
 	<!-- Specify the paths for translatable code -->
 	<source path='client' />
 	<source path='shared' />
-
 
 </module>
 
