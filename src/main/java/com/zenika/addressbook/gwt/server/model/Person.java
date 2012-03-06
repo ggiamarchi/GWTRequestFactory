@@ -1,6 +1,5 @@
 package com.zenika.addressbook.gwt.server.model;
 
-import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -28,9 +27,7 @@ import com.zenika.addressbook.gwt.server.util.SessionFactoryHolder;
 	        columnNames={"firstname", "lastname"} 
 		)
 )
-public class Person implements Serializable, Comparable<Person> {
-
-	private static final long serialVersionUID = -5034893225405242562L;
+public class Person {
 
 	@Id
 	@GeneratedValue
@@ -140,31 +137,20 @@ public class Person implements Serializable, Comparable<Person> {
 	// Services implementation
 
 	public static Person findPerson(int id) {
-		System.out.println("Person.findPerson()");
 		return (Person) SessionFactoryHolder.getSessionFactory().getCurrentSession().load(Person.class, id);
 
 	}
 
 	public static void saveOrUpdate(Person person) {
-		System.out.println("Person.saveOrUpdate()");
 		SessionFactoryHolder.getSessionFactory().getCurrentSession().saveOrUpdate(person);
 	}
 
 	public static Person read(String firstname, String lastname) {
-		System.out.println("Person.readListPerson()");
 		return (Person) SessionFactoryHolder.getSessionFactory().getCurrentSession()
 			.createCriteria(Person.class)
-		    	.add(Restrictions.like("firstname", firstname))
-		    	.add(Restrictions.like("lastname", lastname))
+		    	.add(Restrictions.eq("firstname", firstname))
+		    	.add(Restrictions.eq("lastname", lastname))
 		    	.uniqueResult();
 	}
 
-	@Override
-	public int compareTo(Person o) {
-		return
-			((o.lastname != null ? o.lastname : "") + (o.firstname != null ? o.firstname : ""))
-			.compareTo
-			((lastname != null ? lastname : "") + (firstname != null ? firstname : ""));
-	}
-	
 }

@@ -1,7 +1,5 @@
 package com.zenika.addressbook.gwt.server.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,9 +8,7 @@ import javax.persistence.Version;
 import com.zenika.addressbook.gwt.server.util.SessionFactoryHolder;
 
 @Entity
-public class Address implements Serializable {
-
-	private static final long serialVersionUID = -7125160361618018958L;
+public class Address {
 
 	@Id
 	@GeneratedValue
@@ -122,9 +118,8 @@ public class Address implements Serializable {
 				+ ", zipcode=" + zipcode + ", city=" + city + ", state="
 				+ state + ", country=" + country + "]";
 	}
-	
+
 	public static Address findAddress(int id) {
-		System.out.println("Address.findAddress()");
 		return (Address) SessionFactoryHolder.getCurrentSession().load(Address.class, id);
 	}
 
